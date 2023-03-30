@@ -21,4 +21,6 @@ Check it out at https://voicet.tech 🌎🗣️
 4. Export Flask App using `export FLASK_APP=project`
 5. Run using `flask run`
 
-![Screenshot of my app](Voicet/Voicet-Homepage.png)
+# Screenshot
+![Voicet Homepage](Voicet-Homepage.png)
+
