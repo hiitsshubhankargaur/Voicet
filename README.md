@@ -10,3 +10,11 @@ Step 4: 📷 The Gallery exhibits all the videos that the User has posted. To up
 Step 5: 🌐 To translate a video, users must select the Translate Button located on the desired video. They must then choose the language into which they wish to translate the video, as well as the gender of the audio. Once these preferences are selected, users must click on the Translate Button.
 
 Step 6: 🤖 In order to translate the video, we generate captions from the video using OpenAI's Whisper STT (Speech To Text) Machine Learning Model. Next, we translate the English subtitles to the target language using Facebook's NLLB ML Model. Finally, we generate audio files from the translations utilizing Vakyansh TTS, merge the audio files, and superimpose them onto the original video. Additionally, we perform lexical and syntactic analysis to ensure the utmost grammatical precision.
+
+# Setup & Installation on Linux
+
+Install Python packages : `pip install -r requirments.txt`
+
+Install Linux tools : `sudo apt install ffmpeg sox`
+
+Fetch VakyanshTTS Models from https://github.com/Open-Speech-EkStep/vakyansh-models#tts-models
