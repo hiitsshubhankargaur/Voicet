@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+
+
+{% for category, message in messages %}
+<div class="notification is-{{ category }}">
+  {{ message }}
+</div>
+{% endfor %}
+
+{% endif %}
+
+
+{% endwith %}
+
+
+<div class="columns is-multiline">
+   {% for video in videos %}
+   <div class="column is-3">
+      <video width="250" height="400" src="{{ url_for('static', filename='uploads/' + video.file_name)  }}" type="video/mp4" controls></video>
+      <div class="buttons is-centered">
+         <h2>{{ video.original_filename }}</h2>
+         <p>
+         <h2>Posted by : {{ video.posted_by }}</h2>
+         </p>
+         <div class="button-group">
+            <a class="button is-link" href="{{ url_for('main.download_post', id=video.id) }}">Download</a>
+            <a class="button is-danger" href="{{ url_for('main.delete_post',id=video.id) }}">Delete</a>
+            <a class="button is-primary" href="{{ url_for('main.translate_post' , id=video.id) }}">Translate</a>
+         </div>
+      </div>
+   </div>
+   {% endfor %}
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

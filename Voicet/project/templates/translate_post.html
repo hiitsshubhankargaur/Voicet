@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+
+
+{% for category, message in messages %}
+<div class="notification is-{{ category }}">
+  {{ message }}
+</div>
+{% endfor %}
+
+
+
+<div class="columns is-centered">
+   <div class="column is-3">
+      <video width="250" height="400" src="{{ url_for('static', filename='uploads/' + video.file_name)  }}" type="video/mp4" controls></video>
+      <div class="buttons is-centered">
+         <h2>{{ video.original_filename }}</h2>
+         <p>
+         <h2>Posted by : {{ video.posted_by }}</h2>
+         </p>
+         <div class="button-group">
+            <a class="button is-link" href="{{ url_for('main.download_post', id=video.id) }}">Download</a>
+            <a class="button is-danger" href="{{ url_for('main.delete_post',id=video.id) }}">Delete</a>
+         </div>
+      </div>
+   </div>
+
+   <div class="column is-3">
+    <form id="my-form" action="{{ url_for('main.translate_post', id=video.id) }}" method="POST" enctype=multipart/form-data>
+
+      <div class="field mt-6">
+        <h2><label class="label is-large m-3">Translate To Language</label></h2>
+        <div class="control">
+          <div class="select is-medium">
+            <select name="translateTo">
+                <option value="bengali" >Bengali</option>
+                <option value="gujarati" >Gujarati</option>
+                <option value="hindi" selected>Hindi</option>
+                <option value="kannada" >Kannada</option>
+                <option value="malayalam" >Malayalam</option>
+                <option value="marathi" >Marathi</option>
+                <option value="odia" >Odia</option>
+                <option value="tamil" >Tamil</option>
+                <option value="telugu" >Telugu</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="field">
+        <h2><label class="label is-large m-5">Translate To Gender</label></h2>
+        <div class="control">
+          <div class="select is-medium">
+            <select  name="gender">
+              <option value="Male">Male</option>
+              <option value="Female" selected>Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control mt-4">
+          <input  class="button is-primary is-large mt-4"  id = "download-button" class="btn btn-primary" type=submit value=Translate >
+            </div>
+            </div>
+          </form>
+   </div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
