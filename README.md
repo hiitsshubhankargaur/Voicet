@@ -11,6 +11,8 @@ Step 5: 🌐 To translate a video, users must select the Translate Button locate
 
 Step 6: 🤖 In order to translate the video, we generate captions from the video using OpenAI's Whisper STT (Speech To Text) Machine Learning Model. Next, we translate the English subtitles to the target language using Facebook's NLLB ML Model. Finally, we generate audio files from the translations utilizing Vakyansh TTS, merge the audio files, and superimpose them onto the original video. Additionally, we perform lexical and syntactic analysis to ensure the utmost grammatical precision.
 
+Check it out at https://voicet.tech 🌎🗣️
+
 # Setup & Installation on Linux
 
 Install Python packages : `pip install -r requirments.txt`
